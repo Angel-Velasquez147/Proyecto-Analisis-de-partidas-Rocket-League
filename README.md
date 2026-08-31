@@ -1,3 +1,4 @@
+
 # Proyecto-Analisis-de-partidas-Rocket-League
 
 Un proyecto que tiene como objetivo analizar las estadisticas de una cierta cantidad de partidas del videojuego rocket league y a partir de estas definir el rendimiento del usuario y que tanto afecto en su rango.
@@ -21,44 +22,68 @@ El objetivo del programa es que te pida tu MMR inicial y que a partir de esto te
 ## Entradas:
 
 1. Solicitar al usuario su MMR inicial.
+
 2. Solicitar la cantidad de partidas que desea analizar.
-3. Para cada partida, solicitar: 
-3.1. Resultado de la partida: victoria o derrota. 
-3.2. Cantidad de goles. 
-3.3. Cantidad de asistencias. 
-3.4. Cantidad de salvadas. 
-3.5. Cantidad de tiros.
+
+3. Para cada partida, solicitar:
+
+   3.1. Resultado de la partida: victoria o derrota.
+
+   3.2. Cantidad de goles.
+
+   3.3. Cantidad de asistencias.
+
+   3.4. Cantidad de salvadas.
+
+   3.5. Cantidad de tiros.
 
 ## Proceso:
 
-4. Asignar el MMR inicial como MMR actual. 
-5. Determinar el rango y división correspondientes al MMR actual. 
-6. Repetir el siguiente proceso para cada partida: 
-6.1. Mostrar el número de la partida que se está analizando. 
-6.2. Almacenar el resultado y las estadísticas obtenidas. 
-6.3. Calcular un puntaje de rendimiento utilizando las estadísticas de la partida. 
-6.4. Determinar cuánto MMR debe ganar o perder el jugador utilizando el resultado de la partida y su rendimiento. 
-6.5. Actualizar el MMR actual. 
-6.6. Comparar el rendimiento de la partida con el de las partidas anteriores para determinar si es la mejor partida registrada.
+4. Asignar el MMR inicial como MMR actual.
 
-7. Una vez analizadas todas las partidas: 
-7.1. Calcular el promedio de goles. 
-7.2. Calcular el promedio de asistencias. 
-7.3. Calcular el promedio de salvadas. 
-7.4. Calcular el promedio de tiros. 
-7.5. Calcular el rendimiento promedio. 
-7.6. Determinar cuál fue la mejor partida según el rendimiento. 
-7.7. Determinar nuevamente el rango y división correspondientes al MMR final.
+5. Determinar el rango y división correspondientes al MMR actual.
+
+6. Repetir el siguiente proceso para cada partida:
+
+   6.1. Mostrar el número de la partida que se está analizando.
+
+   6.2. Almacenar el resultado y las estadísticas obtenidas.
+
+   6.3. Calcular un puntaje de rendimiento utilizando las estadísticas de la partida.
+
+   6.4. Determinar cuánto MMR debe ganar o perder el jugador utilizando el resultado de la partida y su rendimiento.
+
+   6.5. Actualizar el MMR actual.
+
+   6.6. Comparar el rendimiento de la partida con el de las partidas anteriores para determinar si es la mejor partida registrada.
+
+7. Una vez analizadas todas las partidas:
+
+   7.1. Calcular el promedio de goles.
+
+   7.2. Calcular el promedio de asistencias.
+
+   7.3. Calcular el promedio de salvadas.
+
+   7.4. Calcular el promedio de tiros.
+
+   7.5. Calcular el rendimiento promedio.
+
+   7.6. Determinar cuál fue la mejor partida según el rendimiento.
+
+   7.7. Determinar nuevamente el rango y división correspondientes al MMR final.
 
 ## Salidas:
 
-8. Mostrar el MMR inicial. 
-9. Mostrar el MMR final. 
-10. Mostrar el rango final. 
-11. Mostrar la división final. 
-12. Mostrar el rendimiento promedio. 
+8. Mostrar el MMR inicial.
+
+9. Mostrar el MMR final.
+
+10. Mostrar el rango final.
+
+11. Mostrar la división final.
+
+12. Mostrar el rendimiento promedio.
+
 13. Mostrar la mejor partida y su rendimiento.
-
-
-
 
