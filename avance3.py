@@ -1,5 +1,5 @@
 #Avance 2 del programa que calcula las estadisticas de las partidas de Rocket league.
-# Este avance añadio funciones a procesos que tenia anteriormente
+# Este avance añadio funciones a procesos que tenia en el anterior avance
 def pedir_mmr_inicial():
     mmr = int(input("Ingrese su mmr inicial: "))
     return mmr
@@ -46,6 +46,12 @@ def mostrar_resultados(mmr_inicial, cantidad_partidas, promedio_gol, promedio_as
     print(f"promedio de tiro por partida: {promedio_tiro}")
     print(f"rendimiento promedio por todas las partidas: {rendimiento_promedio}")
 
+#--------------------------
+#def calcular_rango()
+#Aun tengo que analizar como usar esta funcion pues usaria condicionales para ser funcional
+#Tambien tendria que ver si es necesario hacer listas para que funcione de manera adecuada o si podria hacer un avance solo usando if/elif
+#-------------------------------
+
 
 mmr_inicial = pedir_mmr_inicial()
 cantidad_de_partidas = pedir_cantidad_partidas()
@@ -57,6 +63,7 @@ total_salvadas = 0
 total_tiros = 0
 rendimiento_total = 0
 
+#Bucle que utilizo para que pregunte las estadisticas de cada partida
 for i in range(1, cantidad_de_partidas+1):
     goles, asistencias, salvadas, tiros = pedir_datos_partida(i)
     rendimiento_partida = calcular_rendimiento(goles, asistencias, salvadas, tiros)
@@ -75,6 +82,7 @@ mostrar_resultados(mmr_inicial, cantidad_de_partidas, promedio_gol, promedio_asi
 
 #Notas sobre avances futuros
 #----------------------------------
+#Este avance tuvo como objetivo principal añadir funciones a mi programa 
 #Mi proyecto final incluira condicionales if elif para calcular_rango(mmr), que decidira tu rango/division a partir del rendimiento y resultados que tuviste
 #Tambien planeo usar listas o ciclos para optimizar el codigo de la mejor manera
 #----------------------------------
