@@ -1,5 +1,5 @@
 #Avance 2 del programa que calcula las estadisticas de las partidas de Rocket league.
-# Este avance añadio funciones a procesos que tenia en el anterior avance
+#Este avance añadio funciones a procesos que tenia en el anterior avance
 def pedir_mmr_inicial():
     mmr = int(input("Ingrese su mmr inicial: "))
     return mmr
