@@ -1,5 +1,6 @@
-#Avance 3 del programa que calcula las estadisticas de las partidas de Rocket league.
-# Este avance añadio condicionales al programa miden el rendimiento de tu partidas.
+#Avance 4 del programa que calcula las estadisticas de las partidas de Rocket league.
+# Este avance añadio bucles while debido a que anteriormente ya tenia en mi codigo mi bucle for
+# Utilize while solamente para validar que el usuario introduzca lo que el programa necesita para funcionar.
 # Dependiendo del rendimiento se calcula el cambio del MMR
 # A partir del MMR actual se determinara el rango del jugador
 #----------------------------------
@@ -12,17 +13,35 @@ def pedir_mmr_inicial():
 #Esta funcion le pide la cantidad de partidas que desea analizar
 def pedir_cantidad_partidas():
     partidas = int(input("cuantas partidas deseas ingresar: "))
+    while partidas <= 0:
+        print("Debe de ingresar como minimo 1 partida")
+        partidas = int(input("cuantas partidas deseas ingresar: "))
     return partidas
+
+#Esta nueva funcion es para validar si las estadisticas que pedimos no son negativas debido a que esto no existe en rocket
+def validar_numero(Texto):
+    numero = int(input(Texto))
+    while numero < 0:
+        print("El valor no puede ser negativo: ")
+        numero = int(input(Texto))
+    return numero
+
+#Reemplazar en pedir datos partidas añadiendo la funcion para no hacer como 4 whiles
+
 
 #Esta funcion pide las estadisticas de la partida
 def pedir_datos_partida(numero):
     print(f"-partida {numero}-")
-    goles = int(input("Cantidad de goles: "))
-    asistencias = int(input("Cantidad de asistencias: "))
-    salvadas = int(input("Cantidad de salvadas: "))
-    tiros = int(input("cantidad de tiros: "))
+    goles = validar_numero("Cantidad de goles: ")
+    asistencias = validar_numero("Cantidad de asistencias: ")
+    salvadas = validar_numero("Cantidad de salvadas: ")
+    tiros = validar_numero("Cantidad de tiros: ")
     resultado = input("Ganaste o perdiste la partida? (G/P): ")
+    while resultado != "G" and resultado != "P":
+        print("Solo puedes usar G o P para definir el resultado")
+        resultado = input("Ganaste o Perdiste la partida? (G/P): ")
     return goles, asistencias, salvadas, tiros, resultado
+
 
 #Esta funcion analiza el rendimiento de la partida basado en las estadisticas que obtuvo
 def calcular_rendimiento(goles, asistencias, salvadas, tiros):
@@ -169,7 +188,7 @@ mostrar_resultados(mmr_inicial, cantidad_de_partidas, promedio_gol, promedio_asi
 
 #Notas sobre avances futuros
 #----------------------------------
-#Este avance tuvo como objetivo principal añadir condicionales a mi programa
-#Mi proyecto final incluira listas o mejoras en los bucles que hagan que el codigo pueda estar mejor optimizado
-#Planeo usar listas, diccionarios o tuplas para poder hacer un sistema donde cada rango este dividido en 4 divisiones
+#Este avance tuvo como objetivo principal añadir bucles a mi programa
+#Planeo usar listas, diccionarios o tuplas para poder hacer u
+#Los bucles actuales se pueden ver modificados a medida que mejore mi programa.
 #----------------------------------
