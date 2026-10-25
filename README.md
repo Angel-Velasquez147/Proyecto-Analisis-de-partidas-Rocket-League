@@ -85,6 +85,9 @@ El objetivo del programa es que te pida tu MMR inicial y que a partir de esto te
 
 12. Mostrar el rendimiento promedio.
 
+13. Mostrar la mejor partida y su rendimiento.
+
+
 ## Avance 7 - Diccionarios y tuplas
 
 ### Por qué no usé listas anidadas
@@ -94,5 +97,5 @@ No usé listas anidadas porque no eran necesarias para este avance. Mi programa 
 En su lugar, en este avance usé diccionarios y tuplas para organizar los rangos y dividir cada rango en 4 divisiones.
 
 
-13. Mostrar la mejor partida y su rendimiento.
+
 
