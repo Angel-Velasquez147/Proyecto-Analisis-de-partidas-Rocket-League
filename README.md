@@ -85,5 +85,14 @@ El objetivo del programa es que te pida tu MMR inicial y que a partir de esto te
 
 12. Mostrar el rendimiento promedio.
 
+## Avance 7 - Diccionarios y tuplas
+
+### Por qué no usé listas anidadas
+
+No usé listas anidadas porque no eran necesarias para este avance. Mi programa funciona mejor con listas simples, ya que me permiten calcular promedios, máximos y demas funciones de forma directa y mantener el código más claro y fácil de leer.
+
+En su lugar, en este avance usé diccionarios y tuplas para organizar los rangos y dividir cada rango en 4 divisiones.
+
+
 13. Mostrar la mejor partida y su rendimiento.
 
