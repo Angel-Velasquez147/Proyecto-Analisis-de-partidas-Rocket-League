@@ -1,8 +1,8 @@
-#Avance 5 del programa que calcula las estadisticas de las partidas de Rocket league.
-# Este avance añadio listas a mi codigo 
-# Utilize las listas y sus funciones de sum y len para caluclar promedios.
-# Tambien aproveche el hecho de que ahora sean listas para crear una funcion que nos indique varios datos
-# Los datos de esta nueva funcion son la mejor/peor puntuacion, cantidad de Victorias/Derrotas y MMR maximo
+#Avance 6 del programa que calcula las estadisticas de las partidas de Rocket league.
+# Este avance añadio diccionarios y tuplas a mi codigo 
+# Utilize los diccionarios para poder dividir cada rango del juego en 4 divisiones
+# Tambien utilice tuplas para guardar los pares inicio y fin porque son valores que no cambian durante el programa
+# Ahora los rangos no estan en una funcion con condicionales y usamos las funciones de calcular rango y calcular division para trabajar con el diccionario que dentro lleva varias tuplas
 #----------------------------------
 
 #Esta funcion le pide al usuario el mmr inicial
@@ -93,53 +93,32 @@ def mmr_obtenido(desempeño, mmr, resultado):
     elif resultado == "P" and desempeño == "Mal desempeño":
             return mmr - 14
 
+#Esta funcion ve las divisiones de cada rango 
+def calcular_divisiones(rangos):
+    divisiones = {}
+    for nombre, limites in rangos.items():
+        minimo, maximo = limites
+        tamaño =  maximo - minimo + 1
+        lista = []
+        inicio = minimo
+        for i in range(1, 5):
+            fin = minimo + (tamaño *i)//4 - 1
+            lista.append((inicio, fin))
+            inicio = fin +1
+        divisiones[nombre] = lista
+    return divisiones
+
 #Esta funcion determina que rango eres segun el MMR que tienes actualmente       
-def calcular_rango(mmr):
-    if mmr <= 174:
-        rango = "Bronce I"
-    elif mmr <= 231:
-        rango = "Bronce II"
-    elif mmr <= 290:
-        rango = "Bronce III"
-    elif mmr <= 352:
-        rango = "Plata I"
-    elif mmr <= 414:
-        rango = "Plata II"
-    elif mmr <= 474:
-        rango = "Plata III"
-    elif mmr <= 533:
-        rango = "Oro I"
-    elif mmr <= 592:
-        rango = "Oro II"
-    elif mmr <= 654:
-        rango = "Oro III"
-    elif mmr <= 713:
-        rango = "Platino I"
-    elif mmr <= 772:
-        rango = "Platino II"
-    elif mmr <= 834:
-        rango = "Platino III"
-    elif mmr <= 914:
-        rango = "Diamante I"
-    elif mmr <= 994:
-        rango = "Diamante II"
-    elif mmr <= 1074:
-        rango = "Diamante III"
-    elif mmr <= 1194:
-        rango = "Campeón I"
-    elif mmr <= 1314:
-        rango = "Campeón II"
-    elif mmr <= 1434:
-        rango = "Campeón III"
-    elif mmr <= 1574:
-        rango = "Gran Campeón I"
-    elif mmr <= 1705:
-        rango = "Gran Campeón II"
-    elif mmr <= 1862:
-        rango = "Gran Campeón III"
-    else:
-        rango = "Supersonic Legend"
-    return rango  
+def calcular_rango(mmr, division):
+    if mmr >= 1863:
+        return "Supersonic Legend"
+    for nombre, lista in division.items():
+        for numero, division in enumerate(lista, 1):
+            inicio, fin = division
+            if inicio <= mmr <= fin:
+                return f"{nombre} división {numero}"
+    return "Bronce 1, Division 1"
+    
    
 #Esta funcion analiza las distintas partidas para encontrar datos especificos entre las distintas partidas
 def Analisis(rendimientos, resultados, historial_mmr):
@@ -163,6 +142,34 @@ mmr_inicial = pedir_mmr_inicial()
 mmr = mmr_inicial
 lista_mmr = [mmr]
 cantidad_de_partidas = pedir_cantidad_partidas()
+
+#Ahora los rangos son parte de un diccionario con tuplas, para que una funcion calcule sus divisiones
+rangos = {
+    "Bronce I": (0, 174),
+    "Bronce II": (175, 231),
+    "Bronce III": (232, 290),
+    "Plata I": (291, 352),
+    "Plata II": (353, 414),
+    "Plata III": (415, 474),
+    "Oro I": (475, 533),
+    "Oro II": (534, 592),
+    "Oro III": (593, 654),
+    "Platino I": (655, 713),
+    "Platino II": (714, 772),
+    "Platino III": (773, 834),
+    "Diamante I": (835, 914),
+    "Diamante II": (915, 994),
+    "Diamante III": (995, 1074),
+    "Campeón I": (1075, 1194),
+    "Campeón II": (1195, 1314),
+    "Campeón III": (1315, 1434),
+    "Gran Campeón I": (1435, 1574),
+    "Gran Campeón II": (1575, 1705),
+    "Gran Campeón III": (1706, 1862),
+}
+
+divisiones = calcular_divisiones(rangos)
+
 
 #Listas que forman las estadisticas
 lista_goles = []
@@ -193,7 +200,7 @@ promedio_gol, promedio_asistencia, promedio_salvada, promedio_tiro, rendimiento_
 lista_goles, lista_asistencias, lista_salvadas, lista_tiros, lista_rendimiento
 )
 
-rango = calcular_rango(mmr)
+rango = calcular_rango(mmr, divisiones)
 
 mostrar_resultados(mmr_inicial, cantidad_de_partidas, promedio_gol, promedio_asistencia, promedio_salvada, promedio_tiro, rendimiento_promedio, mmr, rango)
 
@@ -201,7 +208,7 @@ Analisis(lista_rendimiento, lista_resultado, lista_mmr)
 
 #Notas sobre avances futuros
 #----------------------------------
-#Este avance tuvo como objetivo principal añadir Listas a mi programa
-#Planeo usar diccionarios, tuplas o listas anidadas dependiendo de cual sea mejor para dividir cada rango en 4 divisiones
-#Las listas actuales se pueden ver modificados a medida que mejore mi programa.
+#Este avance tuvo como objetivo principal añadir diccionarios y tuplas a mi programa
+#No utilice listas anidadas debido a que estas no cambiaran el modo en el que mi codigo funciona y solo haria que fuese mas largo y complejo cumpliendo las mismas funciones
+#Las listas, diccionarios y tuplas actuales se pueden ver modificados a medida que mejore mi programa.
 #----------------------------------
